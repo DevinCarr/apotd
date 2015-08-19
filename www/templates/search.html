@@ -1,0 +1,26 @@
+<ion-view view-title="Search">
+  <ion-content>
+    <!-- <div class="list list-inset">
+      <label class="item item-input">
+        <i class="icon ion-search placeholder-icon"></i>
+        <input type="text" placeholder="What day?">
+      </label>
+    </div> -->
+    <div ng-repeat="day in recentDates | orderBy:'-utc'">
+      <div class="list card" ng-click="go({{1*day.utc}})">
+        <div class="item item-header">
+          {{day.utc | date}}
+        </div>
+        <div class="item item-image" ng-show="{{day.media_type === 'image'}}">
+          <img ng-src="{{day.url}}"></img>
+        </div>
+        <div class="item" ng-show="{{day.media_type === 'video'}}">
+          <i class="icon ion-ios-videocam"></i>
+        </div>
+      </div>
+    </div>
+    <button class="button button-full button-clear button-stable" ng-click="more()">
+      More
+    </button>
+  </ion-content>
+</ion-view>

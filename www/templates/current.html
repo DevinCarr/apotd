@@ -1,0 +1,28 @@
+<ion-view>
+
+  <ion-content>
+    <div class="list card">
+      <div class="item item-header">
+        {{request.utc | date}}
+      </div>
+
+      <div class="item item-image">
+        <a href="{{request.url}}">
+          <div >
+            <img ng-src="{{request.url}}"></img>
+          </div>
+        </a>
+      </div>
+
+      <div class="item item-body">
+        <h2>{{request.title}}</h2>
+        <p>{{request.explanation}}</p>
+        <hr ng-show="{{request.concepts.length>0}}"></hr>
+        <p>
+          <span ng-repeat="concept in request.concepts">{{concept}}, </span>
+        </p>
+      </div>
+
+    </div>
+  </ion-content>
+</ion-view>
